@@ -58,11 +58,13 @@ export class StreamService {
 			}
 		})
 
+		if (total === 0) return []
+
+		const sampleSize = Math.min(6, total)
+
 		const randomIndexes = new Set<number>()
-
-		while (randomIndexes.size < 6) {
+		while (randomIndexes.size < sampleSize) {
 			const randomIndex = Math.floor(Math.random() * total)
-
 			randomIndexes.add(randomIndex)
 		}
 
